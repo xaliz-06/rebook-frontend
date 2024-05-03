@@ -175,7 +175,7 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
                 <FormControl>
                   <Combobox
                     value={selectedGenre}
-                    onChange={setSelectedGenre}
+                    onChange={(value) => setSelectedGenre(value)}
                     as="div"
                     className="w-[25vw] bg-white rounded border border-gray-300 shadow-lg"
                     multiple
