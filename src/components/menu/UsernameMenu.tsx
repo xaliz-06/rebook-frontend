@@ -26,6 +26,14 @@ const UsernameMenu = () => {
         <div className="py-2">
           <DropdownMenuItem>
             <Link
+              to="/manage-store"
+              className="font-bold text-gray-200 text-xl hover:text-blue-500"
+            >
+              Manage Store
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem>
+            <Link
               to="/user-profile"
               className="font-bold text-gray-200 text-xl hover:text-blue-500"
             >
