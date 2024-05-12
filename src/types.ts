@@ -29,3 +29,12 @@ export type Store = {
   user: string;
   lastUpdated: string;
 };
+
+export type StoreSearchResponse = {
+  data: Store[];
+  pagination: {
+    total: number;
+    page: number;
+    pages: number;
+  };
+};
