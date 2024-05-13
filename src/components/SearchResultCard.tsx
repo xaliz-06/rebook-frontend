@@ -11,7 +11,7 @@ const SearchResultCard = ({ store }: Props) => {
   return (
     <Link
       to={`/detail/${store._id}`}
-      className="grid lg:grid-cols-[2fr_3fr] gap-5 group p-2 bg-slate-600 rounded-md"
+      className="grid lg:grid-cols-[2fr_3fr] gap-5 group p-2 bg-slate-900 border-slate-600 rounded-lg"
     >
       <AspectRatio ratio={16 / 8} className="p-2 bg-slate-900 rounded-lg">
         <img
@@ -34,7 +34,7 @@ const SearchResultCard = ({ store }: Props) => {
           </div>
           <div className="flex gap-2 flex-col">
             <div className="flex items-center gap-1 text-blue-400">
-              <MapPin size={16} className="text-blue-400" />
+              <MapPin size={16} className="text-blue-500" />
               {store.city}
             </div>
             <div className="flex items-center gap-1 text-green-600">

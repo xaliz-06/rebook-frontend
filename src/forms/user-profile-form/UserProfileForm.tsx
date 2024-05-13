@@ -24,15 +24,23 @@ const formSchema = z.object({
   country: z.string().min(1, "Country is Required"),
 });
 
-type UserFormData = z.infer<typeof formSchema>;
+export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
   onSave: (userPorfileData: UserFormData) => void;
   isLoading: boolean;
   currentUser: User;
+  title?: string;
+  buttonText?: string;
 };
 
-const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
+const UserProfileForm = ({
+  onSave,
+  isLoading,
+  currentUser,
+  title = "User Profile",
+  buttonText = "Submit",
+}: Props) => {
   const form = useForm<UserFormData>({
     resolver: zodResolver(formSchema),
     defaultValues: currentUser,
@@ -49,7 +57,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
         className="space-y-4 bg-slate-800 rounded-lg md:p-10"
       >
         <div className="flex flex-col gap-4">
-          <h2 className="text-3xl font-bold text-gray-200">User Profile</h2>
+          <h2 className="text-3xl font-bold text-gray-200">{title}</h2>
           <FormDescription className="text-xl text-gray-200">
             Review your profile and edit here
           </FormDescription>
@@ -131,7 +139,7 @@ const UserProfileForm = ({ onSave, isLoading, currentUser }: Props) => {
           <LoadingButton />
         ) : (
           <Button type="submit" className="bg-slate-900 text-gray-200">
-            Submit
+            {buttonText}
           </Button>
         )}
       </form>
