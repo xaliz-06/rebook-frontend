@@ -24,11 +24,11 @@ const OrderSummary = ({ store, cartItems, removeFromCart }: Props) => {
 
   return (
     <>
-      <CardHeader className="text-2xl font-bold tracking-tight flex flex-row justify-between">
-        <CardTitle className="text-2xl font-bold tracking-tighter text-white">
+      <CardHeader className="text-lg md:text-2xl lg:text-2xl font-bold tracking-tight ">
+        <CardTitle className="font-bold tracking-tighter text-white flex flex-row md:flex-col md:gap-2 lg:flex-row lg:gap-0 justify-between items-center md:items-start lg:items-center">
           <span>Your Order</span>
+          <span className="text-blue-500 font-bold">INR {getTotalCost()}</span>
         </CardTitle>
-        <span className="text-blue-500">INR {getTotalCost()}</span>
       </CardHeader>
       <CardContent className="flex flex-col gap-5 text-white">
         {cartItems.map((item, index) => (
@@ -37,7 +37,9 @@ const OrderSummary = ({ store, cartItems, removeFromCart }: Props) => {
             key={index}
           >
             <div className="flex items-center justify-between">
-              <span className="text-lg">{item.name}</span>
+              <span className="text-base md:text-sm lg:text-lg">
+                {item.name}
+              </span>
               <Trash
                 className="cursor-pointer"
                 size={20}

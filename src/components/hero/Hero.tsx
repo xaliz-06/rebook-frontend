@@ -2,7 +2,7 @@ import books_hero from "../../assets/books.png";
 
 const Hero = () => {
   return (
-    <div className="flex justify-evenly p-3 px-16 bg-slate-800 h-[100%] items-center md:h-[80vh]">
+    <div className="flex justify-evenly p-3 px-16 bg-slate-800 h-[100%] items-center md:h-[100%] lg:h-[80vh]">
       <div className="flex-1 flex flex-col p-8 px-2 md:p-8 gap-5 text-gray-200 text-center md:text-left">
         <h3 className="text-6xl font-bold leading-normal">
           Buy

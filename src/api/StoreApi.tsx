@@ -15,15 +15,15 @@ export const useGetStore = (storeId?: string) => {
     return response.json();
   };
 
-  const { data: store, isLoading } = useQuery(
-    "fetchStore",
-    getStoreByIdRequest,
-    {
-      enabled: !!storeId,
-    }
-  );
+  const {
+    data: store,
+    isLoading,
+    error,
+  } = useQuery("fetchStore", getStoreByIdRequest, {
+    enabled: !!storeId,
+  });
 
-  return { store, isLoading };
+  return { store, isLoading, error };
 };
 
 export const useSearchStore = (searchState: SearchState, city?: string) => {

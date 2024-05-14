@@ -48,10 +48,10 @@ const testimonials = [
 const HomeTestimonials = () => {
   return (
     <div className="flex flex-col gap-8 mt-12">
-      <h2 className="text-slate-200 font-bold text-3xl md:text-4xl text-center">
+      <h2 className="text-slate-200 font-bold text-2xl md:text-4xl text-center">
         What the Talk of the Town is
       </h2>
-      <Carousel className="mx-6 md:mx-4">
+      <Carousel className="mx-6 md:mx-5 lg:mx-4">
         <CarouselContent className="px-5 md:-px-4">
           {testimonials.map((obj) => {
             return (
@@ -60,8 +60,10 @@ const HomeTestimonials = () => {
                 className="ml-2 md:basis-1/3 rounded-lg bg-slate-900 p-4"
               >
                 <div className="flex flex-col gap-4 text-slate-200 px-4 py-6">
-                  <p className="text-lg md:text-xl">{obj.review}</p>
-                  <h5 className="text-xl md:text-2xl font-medium text-blue-500">
+                  <p className="text-base md:text-base lg:text-xl">
+                    {obj.review}
+                  </p>
+                  <h5 className="text-xl md:text-xl lg:text-2xl font-medium text-blue-500">
                     - {obj.name}
                   </h5>
                 </div>

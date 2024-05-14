@@ -148,7 +148,7 @@ const ManageStoreForm = ({ onSave, isLoading, store }: Props) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-4 bg-slate-800 rounded-lg md:p-10"
+        className="space-y-4 bg-slate-800 rounded-lg py-4 px-2 md:py-4 md:px-2 lg:p-10"
       >
         <DetailsSection />
         <Separator />

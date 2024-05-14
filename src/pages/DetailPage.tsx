@@ -8,6 +8,7 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Card, CardFooter } from "@/components/ui/card";
 import { UserFormData } from "@/forms/user-profile-form/UserProfileForm";
 import { Book } from "@/types";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -105,8 +106,9 @@ const DetailPage = () => {
 
   if (isLoading || !store) {
     return (
-      <div>
-        <span>Loading...</span>
+      <div className="p-4 mx-auto my-2 text-blue-500 flex flex-col justify-center items-center gap-4">
+        <span className="text-3xl">Loading...</span>
+        <Loader2 className="w-10 h-10" />
       </div>
     );
   }
@@ -120,10 +122,10 @@ const DetailPage = () => {
           className="rounded-md object-cover h-full w-full"
         />
       </AspectRatio>
-      <div className="grid md:grid-cols-[4fr_2fr] gap-5 md:px-32">
+      <div className="grid md:grid-cols-[4fr_2fr] gap-5">
         <div className="flex flex-col gap-4">
           <StoreInfo store={store} />
-          <span className="text-3xl font-bold tracking-tight text-white">
+          <span className="text-2xl md:text-3xl font-bold tracking-tight text-white">
             Books
           </span>
           {store.availableBooks.map((book, index) => (

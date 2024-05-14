@@ -16,7 +16,7 @@ const StoreInfo = ({ store }: Props) => {
   return (
     <Card className="border-sla border-slate-600 bg-slate-900">
       <CardHeader>
-        <CardTitle className="text-3xl font-bold tracking-tighter text-white">
+        <CardTitle className="text-2xl md:text-3xl font-bold tracking-tighter text-white">
           {store.sellerName}
         </CardTitle>
         <CardDescription className="text-slate-300">

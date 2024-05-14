@@ -21,37 +21,39 @@ const PaginationSelect = ({ page, pages, onPageChange }: Props) => {
 
   return (
     <Pagination>
-      <PaginationContent className="p-3 my-3 text-3xl font-bold text-white flex flex-row gap-2 items-center">
-        {page !== 1 && (
-          <PaginationItem>
-            <PaginationPrevious
+      {pageNumbers.length !== 0 && (
+        <PaginationContent className="p-3 my-3 text-md md:text-3xl font-bold text-white flex flex-row gap-2 items-center">
+          {page !== 1 && (
+            <PaginationItem>
+              <PaginationPrevious
+                href="#"
+                onClick={() => onPageChange(page - 1)}
+                className="text-md md:text-xl font-bold"
+              />
+            </PaginationItem>
+          )}
+          {pageNumbers.map((number) => (
+            <PaginationLink
               href="#"
-              onClick={() => onPageChange(page - 1)}
-              className="text-xl font-bold"
-            />
-          </PaginationItem>
-        )}
-        {pageNumbers.map((number) => (
-          <PaginationLink
-            href="#"
-            onClick={() => onPageChange(number)}
-            isActive={page === number}
-            className={page === number ? "text-blue-500" : ""}
-            key={number}
-          >
-            {number}
-          </PaginationLink>
-        ))}
-        {page !== pageNumbers.length && (
-          <PaginationItem>
-            <PaginationNext
-              href="#"
-              onClick={() => onPageChange(page + 1)}
-              className="text-xl font-bold"
-            />
-          </PaginationItem>
-        )}
-      </PaginationContent>
+              onClick={() => onPageChange(number)}
+              isActive={page === number}
+              className={page === number ? "text-blue-500" : ""}
+              key={number}
+            >
+              {number}
+            </PaginationLink>
+          ))}
+          {page !== pageNumbers.length && (
+            <PaginationItem>
+              <PaginationNext
+                href="#"
+                onClick={() => onPageChange(page + 1)}
+                className="text-md md:text-xl font-bold"
+              />
+            </PaginationItem>
+          )}
+        </PaginationContent>
+      )}
     </Pagination>
   );
 };

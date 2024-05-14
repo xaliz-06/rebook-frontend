@@ -54,11 +54,11 @@ const UserProfileForm = ({
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSave)}
-        className="space-y-4 bg-slate-800 rounded-lg md:p-10"
+        className="space-y-4 bg-slate-800 rounded-2xl md:rounded-lg md:p-10"
       >
         <div className="flex flex-col gap-4">
           <h2 className="text-3xl font-bold text-gray-200">{title}</h2>
-          <FormDescription className="text-xl text-gray-200">
+          <FormDescription className="md:text-xl text-lg text-gray-200">
             Review your profile and edit here
           </FormDescription>
 
@@ -87,7 +87,7 @@ const UserProfileForm = ({
               </FormItem>
             )}
           />
-          <div className="flex gap-3">
+          <div className="flex gap-3 md:flex-row flex-col">
             <FormField
               control={form.control}
               name="addressLine1"
@@ -103,36 +103,39 @@ const UserProfileForm = ({
                 </FormItem>
               )}
             />
+            <div className="flex flex-row gap-2">
+              <FormField
+                control={form.control}
+                name="city"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="text-xl text-gray-200">
+                      City
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} className="bg-white" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
 
-            <FormField
-              control={form.control}
-              name="city"
-              render={({ field }) => (
-                <FormItem className="flex-1">
-                  <FormLabel className="text-xl text-gray-200">City</FormLabel>
-                  <FormControl>
-                    <Input {...field} className="bg-white" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="country"
-              render={({ field }) => (
-                <FormItem className="flex-1">
-                  <FormLabel className="text-xl text-gray-200">
-                    Country
-                  </FormLabel>
-                  <FormControl>
-                    <Input {...field} className="bg-white" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+              <FormField
+                control={form.control}
+                name="country"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="text-xl text-gray-200">
+                      Country
+                    </FormLabel>
+                    <FormControl>
+                      <Input {...field} className="bg-white" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
           </div>
         </div>
         {isLoading ? (

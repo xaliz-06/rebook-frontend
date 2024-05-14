@@ -38,3 +38,31 @@ export type StoreSearchResponse = {
     pages: number;
   };
 };
+
+export type Order = {
+  _id: string;
+  store: Store;
+  user: User;
+  cartItems: {
+    bookId: string;
+    name: string;
+    condition: string;
+  }[];
+  deliveryDetails: {
+    email: string;
+    name: string;
+    addressLine1: string;
+    city: string;
+    country: string;
+  };
+  totalAmount: number;
+  status: OrderStatus;
+  createdAt: string;
+};
+
+export type OrderStatus =
+  | "placed"
+  | "paid"
+  | "inProgress"
+  | "outForDelivery"
+  | "delivered";

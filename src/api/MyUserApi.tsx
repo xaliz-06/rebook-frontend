@@ -111,7 +111,6 @@ export const useUpdateMyUser = () => {
     isLoading,
     isSuccess,
     error,
-    reset,
   } = useMutation(updateMyUserRequest);
 
   if (isSuccess) {
@@ -120,7 +119,6 @@ export const useUpdateMyUser = () => {
 
   if (error) {
     toast.error(error.toString());
-    reset();
   }
 
   return { updateUser, isLoading };

@@ -16,15 +16,15 @@ type Props = {
 const BookItem = ({ book, addToCart }: Props) => {
   return (
     <Card
-      className="cursor-pointer border-sla border-slate-600 bg-slate-600"
+      className="cursor-pointer border-slate-600 bg-slate-600"
       onClick={addToCart}
     >
       <CardHeader>
-        <CardTitle className="text-2xl font-bold tracking-tighter text-white">
+        <CardTitle className="text-xl lg:text-2xl font-bold tracking-tighter text-white">
           {book.name}
         </CardTitle>
-        <CardDescription className="flex justify-between text-slate-100 text-lg">
-          <div className="">
+        <CardDescription className="flex flex-col md:flex-row justify-between text-slate-100 text-sm md:text-base lg:text-lg">
+          <div className="lg:text-lg">
             {book.author} ({book.releaseYear})
           </div>
           <div>Condition: {book.condition}</div>
@@ -34,7 +34,7 @@ const BookItem = ({ book, addToCart }: Props) => {
         <div className="flex flex-row">
           {book.genre.map((item, index) => (
             <span className="flex" key={index}>
-              <span className="text-white">{item}</span>
+              <span className="text-white text-sm md:text-base">{item}</span>
               {index < book.genre.length - 1 && <Dot className="text-white" />}
             </span>
           ))}

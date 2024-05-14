@@ -53,7 +53,7 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
 
   return (
     <div className="flex flex-col justify-between gap-2 py-2">
-      <div className="flex flex-row flex-1 justify-between">
+      <div className="flex flex-col gap-3 md:gap-0 md:flex-row flex-1 justify-between">
         <FormField
           control={control}
           name={`availableBooks.${index}.name`}
@@ -66,7 +66,7 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
               <FormControl>
                 <Input
                   {...field}
-                  className="bg-white w-[25vw]"
+                  className="bg-white lg:w-[25vw]"
                   placeholder="A fantastic book"
                 />
               </FormControl>
@@ -85,7 +85,7 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
               <FormControl>
                 <Input
                   {...field}
-                  className="bg-white w-[25vw]"
+                  className="bg-white lg:w-[25vw]"
                   placeholder="A brilliant author"
                 />
               </FormControl>
@@ -104,7 +104,7 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
               <FormControl>
                 <Input
                   {...field}
-                  className="bg-white w-[25vw] w"
+                  className="bg-white lg:w-[25vw]"
                   placeholder="1952"
                 />
               </FormControl>
@@ -112,62 +112,67 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
           )}
         />
       </div>
-      <div className="flex flex-row flex-1 justify-between items-center">
-        <FormField
-          control={control}
-          name={`availableBooks.${index}.price`}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="flex items-center gap-1 text-gray-200">
-                Price (INR)
-                <FormMessage />
-              </FormLabel>
-              <FormControl>
-                <Input
-                  {...field}
-                  className="bg-white w-[10vw]"
-                  placeholder="270"
-                />
-              </FormControl>
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={control}
-          name={`availableBooks.${index}.condition`}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="flex items-center gap-1 text-gray-200">
-                Condition
-                <FormMessage />
-              </FormLabel>
-
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
+      <div className="flex flex-col gap-2 mt-3 lg:mt-0 lg:gap-0 lg:flex-row flex-1 justify-between lg:items-center">
+        <div className="flex flex-row justify-between gap-8 md:justify-start">
+          <FormField
+            control={control}
+            name={`availableBooks.${index}.price`}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="flex items-center gap-1 text-gray-200">
+                  Price (INR)
+                  <FormMessage />
+                </FormLabel>
                 <FormControl>
-                  <SelectTrigger className="w-[100%] bg-white rounded shadow-lg">
-                    <SelectValue
-                      placeholder="Select a condition"
-                      className=""
-                    />
-                  </SelectTrigger>
+                  <Input
+                    {...field}
+                    className="bg-white md:w-[20vw] lg:w-[10vw]"
+                    placeholder="270"
+                  />
                 </FormControl>
-                <SelectContent className="bg-white p-2 rounded shadow-lg">
-                  {conditions.map((condition) => (
-                    <SelectItem key={condition} value={condition}>
-                      {condition}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </FormItem>
-          )}
-        />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={control}
+            name={`availableBooks.${index}.condition`}
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="flex items-center gap-1 text-gray-200">
+                  Condition
+                  <FormMessage />
+                </FormLabel>
+
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
+                  <FormControl>
+                    <SelectTrigger className="w-[100%] bg-white rounded shadow-lg">
+                      <SelectValue
+                        placeholder="Select a condition"
+                        className=""
+                      />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent className="bg-white p-2 rounded shadow-lg">
+                    {conditions.map((condition) => (
+                      <SelectItem key={condition} value={condition}>
+                        {condition}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormItem>
+            )}
+          />
+        </div>
         <FormField
           control={control}
           name={`availableBooks.${index}.genre`}
           render={({ field }) => (
-            <FormItem className="flex flex-row items-center gap-3">
-              <div className="flex flex-col gap-2">
+            <FormItem className="flex flex-col md:flex-row md:items-center gap-3">
+              <div className="flex flex-col md:flex-1 gap-2">
                 <FormLabel className="flex items-center gap-1 text-gray-200">
                   Genre
                   <FormMessage />
@@ -177,16 +182,16 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
                     value={selectedGenre}
                     onChange={(value) => setSelectedGenre(value)}
                     as="div"
-                    className="w-[25vw] bg-white rounded border border-gray-300 shadow-lg"
+                    className="md:w-[25vw] bg-white rounded border border-gray-300 shadow-lg"
                     multiple
                   >
                     <Combobox.Input
                       onChange={(event) => setQuery(event.target.value)}
-                      className="w-[25vw] bg-white rounded border border-gray-300 shadow-lg p-1 text-sm"
+                      className="w-[100%] md:w-[25vw] bg-white rounded border border-gray-300 shadow-lg p-1 text-sm"
                       placeholder="Start typing..."
                     />
                     <Combobox.Options
-                      className="absolute z-50 mt-1 w-[25vw] bg-white rounded border border-gray-300 shadow-lg"
+                      className="absolute z-50 mt-1 w-[70vw] md:w-[25vw] bg-white rounded border border-gray-300 shadow-lg"
                       style={{ maxHeight: "200px", overflowY: "auto" }}
                     >
                       {filteredGenres.map((genre) => (
@@ -212,7 +217,7 @@ const MenuItemInput = ({ index, removeMenuItem, book }: Props) => {
                   </Combobox>
                 </FormControl>
               </div>
-              <div className="flex gap-1 bg-slate-200 w-[30vw] p-2 rounded border border-gray-300 shadow-lg min-h-[3rem]">
+              <div className="flex gap-1 bg-slate-200 md:flex-1 lg:w-[30vw] p-2 rounded border border-gray-300 shadow-lg min-h-[3rem]">
                 {selectedGenre.length > 0 && (
                   <ul className="flex flex-row gap-2 flex-wrap">
                     {selectedGenre.map((genre) => (

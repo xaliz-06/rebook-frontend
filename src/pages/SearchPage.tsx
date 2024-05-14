@@ -5,6 +5,7 @@ import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
 import SearchResultInfo from "@/components/SearchResultInfo";
 import SortOptionDropdown from "@/components/SortOptionDropdown";
+import { Loader2 } from "lucide-react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -29,11 +30,20 @@ const SearchPage = () => {
   const [isExpanded, setIsExpanded] = useState<boolean>(false);
 
   if (isLoading) {
-    <span>Loading...</span>;
+    <div className="p-4 mx-auto my-2 text-blue-500 flex flex-col justify-center items-center gap-4">
+      <span className="text-3xl">Loading...</span>
+      <Loader2 className="w-10 h-10" />
+    </div>;
   }
 
   if (!results?.data || !city) {
-    return <span>No Results Found!</span>;
+    return (
+      <div className="p-4 mx-auto my-2 text-white flex justify-center items-center">
+        <span className="text-2xl md:text-3xl font-bold">
+          No Results Found!
+        </span>
+      </div>
+    );
   }
 
   const setSortOption = (sortOption: string) => {

@@ -15,8 +15,10 @@ const DetailsSection = () => {
   return (
     <div className="space-y-2">
       <div className="flex flex-col gap-4">
-        <h2 className="text-3xl font-bold text-gray-200">Details</h2>
-        <FormDescription className="text-xl text-gray-200">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-200">
+          Details
+        </h2>
+        <FormDescription className="text-lg md:text-xl text-gray-200">
           Enter the details about your store
         </FormDescription>
       </div>
@@ -25,7 +27,9 @@ const DetailsSection = () => {
         name="sellerName"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-xl text-gray-200">Seller Name</FormLabel>
+            <FormLabel className="text-lg md:text-xl text-gray-200">
+              Seller Name
+            </FormLabel>
             <FormControl>
               <Input {...field} className="bg-white" />
             </FormControl>
@@ -33,16 +37,18 @@ const DetailsSection = () => {
           </FormItem>
         )}
       />
-      <div className="flex gap-4 justify-between">
-        <div className="flex gap-2 w-[50%]">
+      <div className="flex gap-4 justify-between flex-col md:flex-row">
+        <div className="flex gap-2 md:w-[50%] flex-row">
           <FormField
             control={control}
             name="city"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xl text-gray-200">City</FormLabel>
+                <FormLabel className="text-lg md:text-xl text-gray-200">
+                  City
+                </FormLabel>
                 <FormControl>
-                  <Input {...field} className="bg-white" />
+                  <Input {...field} className="bg-white " />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -53,7 +59,9 @@ const DetailsSection = () => {
             name="country"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-xl text-gray-200">Country</FormLabel>
+                <FormLabel className="text-lg md:text-xl text-gray-200">
+                  Country
+                </FormLabel>
                 <FormControl>
                   <Input {...field} className="bg-white" />
                 </FormControl>
@@ -62,13 +70,13 @@ const DetailsSection = () => {
             )}
           />
         </div>
-        <div className="flex gap-2 w-[50%]">
+        <div className="flex gap-2 md:w-[50%]">
           <FormField
             control={control}
             name="deliveryPrice"
             render={({ field }) => (
               <FormItem className="w-[100%]">
-                <FormLabel className="text-xl text-gray-200">
+                <FormLabel className="text-lg md:text-xl text-gray-200">
                   Delivery Price (INR)
                 </FormLabel>
                 <FormControl>

@@ -28,7 +28,7 @@ const details = [
 const HomeFeatures = () => {
   return (
     <div className="flex flex-col gap-8 mt-6 md:mt-12">
-      <h2 className="text-slate-200 font-bold text-3xl md:text-4xl text-center">
+      <h2 className="text-slate-200 font-bold text-2xl md:text-4xl text-center">
         What We Are Good At
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">

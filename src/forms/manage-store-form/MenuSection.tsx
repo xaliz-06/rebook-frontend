@@ -19,8 +19,8 @@ const MenuSection = ({ books }: Props) => {
   return (
     <div className="space-y-2 flex flex-col">
       <div className="flex flex-col gap-4">
-        <h2 className="text-3xl font-bold text-gray-200">Genres</h2>
-        <FormDescription className="text-xl text-gray-200">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-200">Genres</h2>
+        <FormDescription className="text-lg md:text-xl text-gray-200">
           List the books you wish to sell
         </FormDescription>
       </div>

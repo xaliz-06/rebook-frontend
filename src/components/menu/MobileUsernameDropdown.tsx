@@ -7,14 +7,26 @@ const MobileUsernameDropdown = () => {
   const { user, logout } = useAuth0();
 
   return (
-    <>
+    <div>
       <p className="font-bold text-gray-400 text-sm">{user?.email}</p>
-      <div className="py-2">
+      <div className="py-2 flex flex-col">
         <Link
           to="/user-profile"
-          className="font-bold text-gray-900 text-xl hover:text-blue-500 p-3 rounded-md bg-gray-200"
+          className="font-bold text-gray-900 text-xl hover:text-blue-500 p-3 my-1 rounded-md bg-gray-200"
         >
           Your Profile
+        </Link>
+        <Link
+          to="/manage-store"
+          className="font-bold text-gray-900 text-xl hover:text-blue-500 p-3  my-1 rounded-md bg-gray-200"
+        >
+          Manage Store
+        </Link>
+        <Link
+          to="/order-status"
+          className="font-bold text-gray-900 text-xl hover:text-blue-500 p-3  my-1 rounded-md bg-gray-200"
+        >
+          Orders
         </Link>
       </div>
       <Separator />
@@ -26,7 +38,7 @@ const MobileUsernameDropdown = () => {
           Log Out
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 

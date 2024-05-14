@@ -1,7 +1,7 @@
 import { genresList } from "@/config/store-options-config";
 import { Label } from "./ui/label";
 import { Check, ChevronDown, ChevronUp } from "lucide-react";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { Button } from "./ui/button";
 
 type Props = {
@@ -17,6 +17,8 @@ const GenreFilter = ({
   isExpanded,
   onExpandedClick,
 }: Props) => {
+  const [showFilters, setShowFilters] = useState<boolean>(false);
+
   const handleGenresReset = () => {
     onChange([]);
   };
@@ -35,19 +37,31 @@ const GenreFilter = ({
   return (
     <>
       <div className="flex justify-between items-center px-2">
-        <div className="text-md font-semibold mb-2 text-white">
+        <div className="text-md font-semibold mb-2 text-white hidden lg:block">
           Filter By Genre
+        </div>
+        <div className="block lg:hidden">
+          <Button
+            onClick={() => setShowFilters((prevState) => !prevState)}
+            className="mb-3"
+          >
+            {showFilters ? "Hide Filters" : "Show Filters"}
+          </Button>
         </div>
         <div
           className="text-sm font-semibold mb-2 underline cursor-pointer text-blue-500"
           onClick={() => {
-            handleGenresReset;
+            handleGenresReset();
           }}
         >
           Reset Filters
         </div>
       </div>
-      <div className="space-y-2 flex flex-col">
+      <div
+        className={`space-y-2 ${
+          showFilters ? "flex flex-col" : "hidden"
+        } lg:flex lg:flex-col`}
+      >
         {genresList
           .slice(0, isExpanded ? genresList.length : 10)
           .map((genre) => {
