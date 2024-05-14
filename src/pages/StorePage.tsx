@@ -7,6 +7,7 @@ import {
 import OrderItemCard from "@/components/OrderItemCard";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import ManageStoreForm from "@/forms/manage-store-form/ManageStoreForm";
+import { useEffect, useState } from "react";
 
 function StorePage() {
   const { createStore, isLoading: isCreateLoading } = useCreateMyStore();
@@ -14,6 +15,16 @@ function StorePage() {
   const { store } = useGetMyStore();
 
   const { orders, error } = useGetMyStoreOrders();
+
+  const [hasError, setHasError] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (error) {
+      setHasError(true);
+    } else {
+      setHasError(false);
+    }
+  }, [error]);
 
   const isEditing = !!store;
 
@@ -37,15 +48,15 @@ function StorePage() {
         value="orders"
         className="space-y-5 bg-slate-800 lg:m-6 lg:p-5 md:m-1 md:py-4 md:px-2 m-1 py-4 text-white rounded-lg"
       >
-        {error ? (
-          <h2 className="text-2xl md:text-3xl font-bold">
-            <span className="text-blue-500">{orders?.length}</span> active
-            orders
-          </h2>
-        ) : (
+        {hasError ? (
           <h2 className="text-2xl md:text-3xl font-bold">
             Unable to get your store. Please check if you have created a store
             or try again later.
+          </h2>
+        ) : (
+          <h2 className="text-2xl md:text-3xl font-bold">
+            <span className="text-blue-500">{orders?.length}</span> active
+            orders
           </h2>
         )}
         {orders?.map((order, index) => (
