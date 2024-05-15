@@ -1,48 +1,53 @@
-
 # RE-BOOK (Front-End)
 
 This is the repository for Re-Book front-end files.
 
-Re-Book is a web-app project of mine which lets users buy and sell books from a location. The idea is to build an app from where a person can search for cities and towns and look for people who are selling their books by creating a store on the platform. 
+Re-Book is a web-app project of mine which lets users buy and sell books from a location. The idea is to build an app from where a person can search for cities and towns and look for people who are selling their books by creating a store on the platform.
 
 ## Live Link
 
+https://rebook-frontend.onrender.com/
+
 ## Features
 
-* Create your profile and set up your store to list, delist or update books for sale. 
-* Search for a location, store or genre and get stores in that location, or relevant to the genres and filter the stores by genre.
-* Order from any store through a payment flow and track your order status.
-* Change order status of orders for your own store.
+- Create your profile and set up your store to list, delist or update books for sale.
+- Search for a location, store or genre and get stores in that location, or relevant to the genres and filter the stores by genre.
+- Order from any store through a payment flow and track your order status.
+- Change order status of orders for your own store.
 
 ## What I used for this project (dependencies)
 
-* React + Vite + TypeScript
-* Stripe API, Stripe CLI and Stripe SDK for payment flow (developer/test mode)
-* react-query
-* shadcn-ui, radix-ui, lucide-react, headless-ui for UI libraries and components
-* zod, react-hook-form for form handling
-* TailwindCSS
-* Auth0 for Authentication management
+- React + Vite + TypeScript
+- Stripe API, Stripe CLI and Stripe SDK for payment flow (developer/test mode)
+- react-query
+- shadcn-ui, radix-ui, lucide-react, headless-ui for UI libraries and components
+- zod, react-hook-form for form handling
+- TailwindCSS
+- Auth0 for Authentication management
 
 ## Installation
 
 1. Clone the repository and install the dependencies
+
 ```bash
-git clone <repository_url>
+git clone https://github.com/xaliz-06/rebook-frontend.git
 cd frontend
 npm install
 ```
+
 2. Usage
+
 ```bash
 npm run dev
 ```
+
 The server will run at https://127.0.0.1:5173 by default.
 
 3. Build for production
+
 ```bash
 npm run build
 ```
-
 
 ## Documentation
 
@@ -60,8 +65,6 @@ npm run build
 [TailwindCSS](https://tailwindcss.com/docs/installation) |
 [Auth0](https://auth0.com/docs) |
 
-
-
 ## Screenshots
 
 [![home_page](https://i.postimg.cc/XYHCT2fn/Screenshot-20240515-104303.png)](https://postimg.cc/0zSjS0X4)
@@ -73,6 +76,7 @@ npm run build
 [![re-book-order-page.png](https://i.postimg.cc/wB4nRdDn/re-book-order-page.png)](https://postimg.cc/JyJpSv6Q)
 
 [![re-book-store.png](https://i.postimg.cc/KzKwnsNj/re-book-store.png)](https://postimg.cc/BL0m3pRf)
+
 ## Note
 
 All the stores, books and testimonials featured are for demonstration purposes and are AI-generated dummy data. The payment flow is for developer mode so no real transactions occur.
@@ -83,3 +87,5 @@ All the stores, books and testimonials featured are for demonstration purposes a
 [hero_image](https://favpng.com/png_view/book-book-drawing-literature-clip-art-png/50duBBGt) |
 
 ## Link to Backend Repository
+
+https://github.com/xaliz-06/rebook-backend.git
